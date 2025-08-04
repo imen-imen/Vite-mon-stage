@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chercher une offre{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Offre(s) trouvée(s)</h1>
+
+        <div class="row">
+            {% for offer in offers %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ offer.title }}</h5>
+                            <p class="card-text">{{ offer.description|slice(0, 100) ~ '...' }}</p>
+                            <a href="{{ path('offer_show', {id: offer.id}) }}" class="btn btn-primary">Voir l'offre</a>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <p>Aucune offre trouvée.</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

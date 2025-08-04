@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}VITE MON STAGE!{% endblock %}
+
+{% block content %}
+<h1>Accueil</h1>
+<p>Bienvenue sur le site VITE MON STAGE !</p>
+<h1>Liste des offres</h1>
+
+<ul>
+    {% for offer in offers %}
+   <li><u>{{ offer.title }}</u></li>
+        <p>{{ offer.description}}</p>
+        <a href="{{ path('app_offer_show', { id: offer.id }) }}">
+<button>Consulter l'offre</button></a>
+    {% else %}
+        <li>Aucune offre trouvée.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Postuler à l'offre{% endblock %}
+
+{% block body %}
+    <h1>Postuler à l'offre : {{ offer.title }}</h1>
+
+    {% if app.user %}
+        {{ form_start(form) }}
+            {{ form_row(form.message) }}
+            <button class="btn btn-success">Envoyer la candidature</button>
+        {{ form_end(form) }}
+    {% else %}
+        <div class="alert alert-warning">
+            Pour postuler à cette offre de stage, merci de vous connecter !<br>
+            <a href="{{ path('app_login') }}">Se connecter</a> ou
+            <a href="{{ path('app_register') }}">S'inscrire</a>
+        </div>
+    {% endif %}
+{% endblock %}

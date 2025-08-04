@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title %}Inscription{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        <h1>Inscrivez-vous pour postuler à nos offres de stage !</h1>
+
+        {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_row(form.firstName) }}
+                {{ form_row(form.lastName) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.plainPassword) }}        
+                {{ form_end(form) }}
+    </div>
+{% endblock %}
